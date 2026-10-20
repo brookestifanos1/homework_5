@@ -2734,6 +2734,45 @@ vertical-align: -.125em;
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
 </section>
+<section id="e.-create-a-table-showing-carrieraverage-arrival-delay-arr_delay" class="level2">
+<h2 class="anchored" data-anchor-id="e.-create-a-table-showing-carrieraverage-arrival-delay-arr_delay">e. Create a table showing: <code>carrier,</code>average arrival delay (<code>arr_delay</code>)</h2>
+<section id="explanation-5" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-5">Explanation</h3>
+<p>The query selected the <code>carrier</code> column and calculated the average arrival delay in a new column called <code>mean_arr_delay</code>. The results were grouped by carrier and sorted by the calculated averages in <strong>descending order</strong>. I also added <code>output.var=&quot;carrier_tibble&quot;</code> to the chunk header to assign the results as a table. I then called the object to display the tibble.</p>
+<div class="cell" data-layout-align="center" data-output.var="carrier_tibble">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- select carrier anc calculate average arr-delay excluding NAs, group by</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="ot">&quot;carrier&quot;</span>, <span class="fu">AVG</span>(<span class="ot">&quot;arr_delay&quot;</span>) <span class="kw">AS</span> <span class="ot">&quot;mean_arr_delay&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> flights</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="ot">&quot;arr_delay&quot;</span> <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="ot">&quot;carrier&quot;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="ot">&quot;mean_arr_delay&quot;</span> <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show tibble from the previous query</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>carrier_tibble</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   carrier mean_arr_delay
+1       F9     21.9207048
+2       FL     20.1159055
+3       EV     15.7964311
+4       YV     15.5569853
+5       OO     11.9310345
+6       MQ     10.7747334
+7       WN      9.6491199
+8       B6      9.4579733
+9       9E      7.3796692
+10      UA      3.5580111
+11      US      2.1295951
+12      VX      1.7644644
+13      DL      1.6443409
+14      AA      0.3642909
+15      HA     -6.9152047
+16      AS     -9.9308886</code></pre>
+</div>
+</div>
+</section>
+</section>
 </section>
 
 </main>

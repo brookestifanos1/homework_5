@@ -116,3 +116,25 @@ LIMIT 5;
 ```
 
 ## 
+
+## e. Create a table showing: `carrier,`average arrival delay (`arr_delay`)
+
+### Explanation
+
+The query selected the `carrier` column and calculated the average arrival delay in a new column called `mean_arr_delay`. The results were grouped by carrier and sorted by the calculated averages in **descending order**. I also added `output.var="carrier_tibble"` to the chunk header to assign the results as a table. I then called the object to display the tibble.
+
+```{sql, connection=con, output.var="carrier_tibble"}
+-- select carrier anc calculate average arr-delay excluding NAs, group by
+
+SELECT "carrier", AVG("arr_delay") AS "mean_arr_delay"
+FROM flights
+WHERE "arr_delay" IS NOT NULL
+GROUP BY "carrier"
+ORDER BY "mean_arr_delay" DESC;
+```
+
+```{r}
+
+# show tibble from the previous query
+carrier_tibble
+```
