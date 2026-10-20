@@ -181,3 +181,11 @@ I used a query similar to Part 1e, with a few key differences. I selected the `m
 The `origin` and `dest` columns were selected to identify each route, and the number of flights for each route was counted in a new column called `number_of_flight`. Grouping by `origin` and then `dest` identified each unique route combination. The results were sorted by the flight count in descending order, and `LIMIT 10` was used to report the top 10 routes.
 
 ![Part 2D solution screenshot](images/part_2d.png)
+
+## e. Export the result of part b query to a CSV file using the Export Data feature in DBeaver
+
+### Explanation
+
+I executed the query from part b and followed the given directions to export the file as a CSV. The exported file is submitted along with the rendered html. I then closed the connection.
+
+![Part 2E solution screenshot](images/part_2e.png)
