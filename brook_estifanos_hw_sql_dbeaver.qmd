@@ -1,0 +1,43 @@
+---
+title: "brook_estifanos_hw_sql_dbeaver"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo       = TRUE, 
+                      fig.align  = "center",
+                      fig.height = 3, fig.width = 4)
+ggplot2::theme_set(ggplot2::theme_bw() + ggplot2::theme(strip.background = ggplot2::element_rect(fill = "white")))
+```
+
+# Part I: Answers
+
+## Setup Explanation
+
+I loaded the necessary packages, downloaded the DuckDB file from the provided URL, and opened a Duckdb connection called **con**. I then checked if the connection is working.
+
+```{r}
+#| warning: false
+#| message: false
+
+#Load Packages DBI, duckdb, nycflights13 and anything else you need
+library(DBI)
+library(duckdb)
+library(tidyverse)
+library(nycflights13)
+
+# Download the DuckDB file from the provided URL
+
+url <- "https://data-science-master.github.io/lectures/data/flights.duckdb"
+
+download.file(url, destfile = "../data/flights.duckdb", mode = "wb")
+
+#Open Duckdb connection
+con <- dbConnect(duckdb(dbdir = "../data/flights.duckdb", read_only = TRUE))
+
+#Checkconnection
+dbIsValid(con)
+```
