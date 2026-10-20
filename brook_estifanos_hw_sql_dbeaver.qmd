@@ -44,7 +44,7 @@ con <- dbConnect(duckdb(dbdir = "../data/flights.duckdb", read_only = TRUE))
 dbIsValid(con)
 ```
 
-## a. List the first **10 rows** of the `flights` table.
+## a. List the first 10 rows of the `flights` table.
 
 ### Explanation
 
@@ -57,4 +57,31 @@ Using the `{sql, connection=con}` header, I executed a SQL query to fetch all co
 SELECT * 
   FROM flights
   LIMIT 10;
+```
+
+## b. Find the number of flights
+
+### Explanation
+
+The `COUNT(*) AS` command was essential because it counts rows and assigns the result a new column name. Part I counted all rows in the `flights` table, while Part II required grouping and sorting the results in **descending order**. I also used `max.print = -1` in the chunk header for part II to display all carriers.
+
+### i. in the data set
+
+```{sql, connection=con}
+-- count the total number of rows in the flight table and return the result as "total number of flights"
+
+SELECT Count(*) AS "total_number_of_flights"
+FROM flights;
+```
+
+### ii. for each carrier
+
+```{sql, connection=con, max.print = -1}
+
+--select the carrier column from flights and count the rows, then group the count by carrier and order by the number of flights in descending order 
+
+SELECT "carrier", Count(*) AS "number_of_flights"
+FROM flights
+GROUP BY "carrier"
+ORDER BY "number_of_flights" DESC;
 ```
