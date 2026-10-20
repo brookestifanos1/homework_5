@@ -157,3 +157,13 @@ dbIsValid(con)
 I followed the instructions to download **DBeaver**, connect to the `flights.duckdb` database, and create a new SQL file. I selected all columns from the `flights` table and limited the output to the first 10 rows. Although the query executed successfully as shown in the screenshot below, I am still unsure why DBeaver displayed the message “Table flights not found.”
 
 ![Part 2A solution screenshot](images/part_2a.png)
+
+## b. Find the **number of flights** for each carrier.
+
+### Explanation
+
+I used the same commands from Part 1b to the execute the query in Dbeaver.
+
+![Part 2B solution screenshot](images/part_2b.png)
+
+## 
