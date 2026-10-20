@@ -2538,7 +2538,7 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="b.-find-the-number-of-flights">b. Find the number of flights</h2>
 <section id="explanation-2" class="level3">
 <h3 class="anchored" data-anchor-id="explanation-2">Explanation</h3>
-<p>The <code>COUNT(*) AS</code> command was essential because it counts rows and assigns the result a new column name. Part I counted all rows in the <code>flights</code> table, while Part II required grouping and sorting the results in <strong>descending order</strong>. I also used <code>max.print = -1</code> in the chunk header for part II to display all carriers.</p>
+<p>The <code>COUNT(*) AS</code> command was essential because it counts rows and assigns the result a new column name. Part I counted all rows in the <code>flights</code> table, while Part II required grouping and sorting the results in <strong>descending order</strong>. I also used <code>max.print = -1</code> in the chunk header for part II to display all carriers. There were a total of <strong>336, 776 flights</strong> in the table and the number of flights for each carrier is shown below.</p>
 </section>
 <section id="i.-in-the-data-set" class="level3">
 <h3 class="anchored" data-anchor-id="i.-in-the-data-set">i. in the data set</h3>
@@ -2647,6 +2647,32 @@ vertical-align: -.125em;
 <tr class="even">
 <td style="text-align: left;">OO</td>
 <td style="text-align: right;">32</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="c.-find-the-average-departure-delay-dep_delay" class="level2">
+<h2 class="anchored" data-anchor-id="c.-find-the-average-departure-delay-dep_delay">c. Find the average departure delay (<code>dep_delay</code>)</h2>
+<section id="explanation-3" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-3">Explanation</h3>
+<p>The <code>AVG(&quot;&quot;) AS &quot;&quot;</code> summary function was used to calculate the average departure delay and report it as “mean_dep_delay”. The average departure delay was <strong>12.64 minutes.</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(<span class="ot">&quot;dep_delay&quot;</span>) <span class="kw">AS</span> <span class="ot">&quot;mean_dep_delay&quot;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> flights;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>1 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">mean_dep_delay</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">12.63907</td>
 </tr>
 </tbody>
 </table>

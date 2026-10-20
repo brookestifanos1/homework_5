@@ -63,7 +63,7 @@ SELECT *
 
 ### Explanation
 
-The `COUNT(*) AS` command was essential because it counts rows and assigns the result a new column name. Part I counted all rows in the `flights` table, while Part II required grouping and sorting the results in **descending order**. I also used `max.print = -1` in the chunk header for part II to display all carriers.
+The `COUNT(*) AS` command was essential because it counts rows and assigns the result a new column name. Part I counted all rows in the `flights` table, while Part II required grouping and sorting the results in **descending order**. I also used `max.print = -1` in the chunk header for part II to display all carriers. There were a total of **336, 776 flights** in the table and the number of flights for each carrier is shown below.
 
 ### i. in the data set
 
@@ -84,4 +84,15 @@ SELECT "carrier", Count(*) AS "number_of_flights"
 FROM flights
 GROUP BY "carrier"
 ORDER BY "number_of_flights" DESC;
+```
+
+## c. Find the average departure delay (`dep_delay`)
+
+### Explanation
+
+The `AVG("") AS ""` summary function was used to calculate the average departure delay and report it as "mean_dep_delay". The average departure delay was **12.64 minutes.**
+
+```{sql, connection=con}
+SELECT AVG("dep_delay") AS "mean_dep_delay" 
+FROM flights;
 ```
