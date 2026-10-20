@@ -2229,9 +2229,11 @@ vertical-align: -.125em;
 
 <section id="part-i-answers" class="level1">
 <h1>Part I: Answers</h1>
-<section id="setup-explanation" class="level2">
-<h2 class="anchored" data-anchor-id="setup-explanation">Setup Explanation</h2>
-<p>I loaded the necessary packages, downloaded the DuckDB file from the provided URL, and opened a Duckdb connection called <strong>con</strong>. I then checked if the connection is working.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<section id="explanation" class="level3">
+<h3 class="anchored" data-anchor-id="explanation">Explanation</h3>
+<p>I loaded the necessary packages, downloaded the <code>DuckDB</code> file from the provided URL, and opened a Duckdb connection called <strong><code>con</code></strong>. I then checked if the connection is working.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load Packages DBI, duckdb, nycflights13 and anything else you need</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
@@ -2254,6 +2256,283 @@ vertical-align: -.125em;
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
+</section>
+</section>
+<section id="a.-list-the-first-10-rows-of-the-flights-table." class="level2">
+<h2 class="anchored" data-anchor-id="a.-list-the-first-10-rows-of-the-flights-table.">a. List the first <strong>10 rows</strong> of the <code>flights</code> table.</h2>
+<section id="explanation-1" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-1">Explanation</h3>
+<p>Using the <code>{sql, connection=con}</code> header, I executed a SQL query to fetch all columns from the <code>flights</code> table, limiting the results to the first 10 rows.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- select all columns from the flights table and stop at 10 rows</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> flights</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Displaying records 1 - 10</caption>
+<colgroup>
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">month</th>
+<th style="text-align: right;">day</th>
+<th style="text-align: right;">dep_time</th>
+<th style="text-align: right;">sched_dep_time</th>
+<th style="text-align: right;">dep_delay</th>
+<th style="text-align: right;">arr_time</th>
+<th style="text-align: right;">sched_arr_time</th>
+<th style="text-align: right;">arr_delay</th>
+<th style="text-align: left;">carrier</th>
+<th style="text-align: right;">flight</th>
+<th style="text-align: left;">tailnum</th>
+<th style="text-align: left;">origin</th>
+<th style="text-align: left;">dest</th>
+<th style="text-align: right;">air_time</th>
+<th style="text-align: right;">distance</th>
+<th style="text-align: right;">hour</th>
+<th style="text-align: right;">minute</th>
+<th style="text-align: left;">time_hour</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">517</td>
+<td style="text-align: right;">515</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">830</td>
+<td style="text-align: right;">819</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">UA</td>
+<td style="text-align: right;">1545</td>
+<td style="text-align: left;">N14228</td>
+<td style="text-align: left;">EWR</td>
+<td style="text-align: left;">IAH</td>
+<td style="text-align: right;">227</td>
+<td style="text-align: right;">1400</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">2013-01-01 10:00:00</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">533</td>
+<td style="text-align: right;">529</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">850</td>
+<td style="text-align: right;">830</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">UA</td>
+<td style="text-align: right;">1714</td>
+<td style="text-align: left;">N24211</td>
+<td style="text-align: left;">LGA</td>
+<td style="text-align: left;">IAH</td>
+<td style="text-align: right;">227</td>
+<td style="text-align: right;">1416</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: left;">2013-01-01 10:00:00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">542</td>
+<td style="text-align: right;">540</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">923</td>
+<td style="text-align: right;">850</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">AA</td>
+<td style="text-align: right;">1141</td>
+<td style="text-align: left;">N619AA</td>
+<td style="text-align: left;">JFK</td>
+<td style="text-align: left;">MIA</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">1089</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">2013-01-01 10:00:00</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">544</td>
+<td style="text-align: right;">545</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1004</td>
+<td style="text-align: right;">1022</td>
+<td style="text-align: right;">-18</td>
+<td style="text-align: left;">B6</td>
+<td style="text-align: right;">725</td>
+<td style="text-align: left;">N804JB</td>
+<td style="text-align: left;">JFK</td>
+<td style="text-align: left;">BQN</td>
+<td style="text-align: right;">183</td>
+<td style="text-align: right;">1576</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: left;">2013-01-01 10:00:00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">554</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">-6</td>
+<td style="text-align: right;">812</td>
+<td style="text-align: right;">837</td>
+<td style="text-align: right;">-25</td>
+<td style="text-align: left;">DL</td>
+<td style="text-align: right;">461</td>
+<td style="text-align: left;">N668DN</td>
+<td style="text-align: left;">LGA</td>
+<td style="text-align: left;">ATL</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">762</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2013-01-01 11:00:00</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">554</td>
+<td style="text-align: right;">558</td>
+<td style="text-align: right;">-4</td>
+<td style="text-align: right;">740</td>
+<td style="text-align: right;">728</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">UA</td>
+<td style="text-align: right;">1696</td>
+<td style="text-align: left;">N39463</td>
+<td style="text-align: left;">EWR</td>
+<td style="text-align: left;">ORD</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">719</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: left;">2013-01-01 10:00:00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">555</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">-5</td>
+<td style="text-align: right;">913</td>
+<td style="text-align: right;">854</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">B6</td>
+<td style="text-align: right;">507</td>
+<td style="text-align: left;">N516JB</td>
+<td style="text-align: left;">EWR</td>
+<td style="text-align: left;">FLL</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">1065</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2013-01-01 11:00:00</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">557</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">-3</td>
+<td style="text-align: right;">709</td>
+<td style="text-align: right;">723</td>
+<td style="text-align: right;">-14</td>
+<td style="text-align: left;">EV</td>
+<td style="text-align: right;">5708</td>
+<td style="text-align: left;">N829AS</td>
+<td style="text-align: left;">LGA</td>
+<td style="text-align: left;">IAD</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">229</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2013-01-01 11:00:00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">557</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">-3</td>
+<td style="text-align: right;">838</td>
+<td style="text-align: right;">846</td>
+<td style="text-align: right;">-8</td>
+<td style="text-align: left;">B6</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: left;">N593JB</td>
+<td style="text-align: left;">JFK</td>
+<td style="text-align: left;">MCO</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">944</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2013-01-01 11:00:00</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">558</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">-2</td>
+<td style="text-align: right;">753</td>
+<td style="text-align: right;">745</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">AA</td>
+<td style="text-align: right;">301</td>
+<td style="text-align: left;">N3ALAA</td>
+<td style="text-align: left;">LGA</td>
+<td style="text-align: left;">ORD</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">733</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2013-01-01 11:00:00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 </section>
 </section>
 

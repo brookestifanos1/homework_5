@@ -15,9 +15,11 @@ ggplot2::theme_set(ggplot2::theme_bw() + ggplot2::theme(strip.background = ggplo
 
 # Part I: Answers
 
-## Setup Explanation
+## Setup 
 
-I loaded the necessary packages, downloaded the DuckDB file from the provided URL, and opened a Duckdb connection called **con**. I then checked if the connection is working.
+### Explanation
+
+I loaded the necessary packages, downloaded the `DuckDB` file from the provided URL, and opened a Duckdb connection called **`con`**. I then checked if the connection is working.
 
 ```{r}
 #| warning: false
@@ -40,4 +42,19 @@ con <- dbConnect(duckdb(dbdir = "../data/flights.duckdb", read_only = TRUE))
 
 #Checkconnection
 dbIsValid(con)
+```
+
+## a. List the first **10 rows** of the `flights` table.
+
+### Explanation
+
+Using the `{sql, connection=con}` header, I executed a SQL query to fetch all columns from the `flights` table, limiting the results to the first 10 rows.
+
+```{sql, connection=con}
+
+-- select all columns from the flights table and stop at 10 rows
+
+SELECT * 
+  FROM flights
+  LIMIT 10;
 ```
