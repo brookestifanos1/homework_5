@@ -93,6 +93,26 @@ ORDER BY "number_of_flights" DESC;
 The `AVG("") AS ""` summary function was used to calculate the average departure delay and report it as "mean_dep_delay". The average departure delay was **12.64 minutes.**
 
 ```{sql, connection=con}
+ -- calculate the average departure delay and report it as "mean_dep_delay"
+ 
 SELECT AVG("dep_delay") AS "mean_dep_delay" 
 FROM flights;
 ```
+
+## d. Find the top 5 destinations (`dest`) With the most flights.
+
+### Explanation
+
+The number of rows from the `dest` column was counted. The result was grouped by flights and then reported in descending order bu the count. The output was limited to 5 rows to select the top 5 destinations. According to the results the top 5 destinations in descending order are **Chicago, Atlanta, Los Angeles, Boston, and Orlando.**
+
+```{sql, connection=con}
+-- count rows in dest and report them as number of flights after grouping by dest and ordering  them by the count in descending order, return the first 5 rows
+
+SELECT "dest", Count(*) AS "number of flights"
+FROM flights
+GROUP BY "dest"
+ORDER BY "number of flights" DESC
+LIMIT 5;
+```
+
+## 

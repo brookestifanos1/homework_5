@@ -2660,8 +2660,10 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="explanation-3">Explanation</h3>
 <p>The <code>AVG(&quot;&quot;) AS &quot;&quot;</code> summary function was used to calculate the average departure delay and report it as “mean_dep_delay”. The average departure delay was <strong>12.64 minutes.</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(<span class="ot">&quot;dep_delay&quot;</span>) <span class="kw">AS</span> <span class="ot">&quot;mean_dep_delay&quot;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> flights;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="co">-- calculate the average departure delay and report it as &quot;mean_dep_delay&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(<span class="ot">&quot;dep_delay&quot;</span>) <span class="kw">AS</span> <span class="ot">&quot;mean_dep_delay&quot;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> flights;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>1 records</caption>
@@ -2679,6 +2681,58 @@ vertical-align: -.125em;
 </div>
 </div>
 </section>
+</section>
+<section id="d.-find-the-top-5-destinations-dest-with-the-most-flights." class="level2">
+<h2 class="anchored" data-anchor-id="d.-find-the-top-5-destinations-dest-with-the-most-flights.">d. Find the top 5 destinations (<code>dest</code>) With the most flights.</h2>
+<section id="explanation-4" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-4">Explanation</h3>
+<p>The number of rows from the <code>dest</code> column was counted. The result was grouped by flights and then reported in descending order bu the count. The output was limited to 5 rows to select the top 5 destinations. According to the results the top 5 destinations in descending order are <strong>Chicago, Atlanta, Los Angeles, Boston, and Orlando.</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- count rows in dest and report them as number of flights after grouping by dest and ordering  them by the count in descending order, return the first 5 rows</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="ot">&quot;dest&quot;</span>, <span class="fu">Count</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="ot">&quot;number of flights&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> flights</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="ot">&quot;dest&quot;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="ot">&quot;number of flights&quot;</span> <span class="kw">DESC</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>5 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">dest</th>
+<th style="text-align: right;">number of flights</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ORD</td>
+<td style="text-align: right;">17283</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ATL</td>
+<td style="text-align: right;">17215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LAX</td>
+<td style="text-align: right;">16174</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BOS</td>
+<td style="text-align: right;">15508</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MCO</td>
+<td style="text-align: right;">14082</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 </section>
 </section>
 
