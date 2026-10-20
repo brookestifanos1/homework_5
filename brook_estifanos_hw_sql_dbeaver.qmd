@@ -138,3 +138,22 @@ ORDER BY "mean_arr_delay" DESC;
 # show tibble from the previous query
 carrier_tibble
 ```
+
+## Closing the Connection
+
+```{r}
+# close connection and check 
+
+DBI::dbDisconnect(con, shutdown = TRUE) 
+dbIsValid(con)
+```
+
+# Part II: Answers
+
+## a. List the first 10 rows of the `flights` table.
+
+### Explanation
+
+I followed the instructions to download **DBeaver**, connect to the `flights.duckdb` database, and create a new SQL file. I selected all columns from the `flights` table and limited the output to the first 10 rows. Although the query executed successfully as shown in the screenshot below, I am still unsure why DBeaver displayed the message “Table flights not found.”
+
+![Part 2A solution screenshot](images/part_2a.png)
