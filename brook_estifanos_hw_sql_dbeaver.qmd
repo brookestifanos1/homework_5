@@ -173,3 +173,11 @@ I used the same commands from Part 1b to the execute the query in Dbeaver.
 I used a query similar to Part 1e, with a few key differences. I selected the `month` column and calculated the average departure delay using `dep_delay`. The results were then grouped by month and ordered by the calculated average departure delays.
 
 ![Part 2C solution screenshot](images/part_2c.png){alt="Part 2C solution screenshot"}
+
+## d. Find the top 10 routes (`dest`) by: `origin,dest`ordered by number of flights.
+
+### Explanation
+
+The `origin` and `dest` columns were selected to identify each route, and the number of flights for each route was counted in a new column called `number_of_flight`. Grouping by `origin` and then `dest` identified each unique route combination. The results were sorted by the flight count in descending order, and `LIMIT 10` was used to report the top 10 routes.
+
+![Part 2D solution screenshot](images/part_2d.png)
